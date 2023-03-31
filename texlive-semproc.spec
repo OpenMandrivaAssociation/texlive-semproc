@@ -1,6 +1,6 @@
 Name:		texlive-semproc
 Version:	37568
-Release:	1
+Release:	2
 Summary:	Seminar proceedings
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/semproc
