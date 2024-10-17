@@ -3,7 +3,7 @@ Version:	37568
 Release:	2
 Summary:	Seminar proceedings
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/semproc
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/semproc
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/semproc.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/semproc.doc.r%{version}.tar.xz
