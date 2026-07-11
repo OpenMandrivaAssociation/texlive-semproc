@@ -1,46 +1,28 @@
-Name:		texlive-semproc
-Version:	37568
-Release:	2
+%global tl_name semproc
+%global tl_revision 37568
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.1
+Release:	%{tl_revision}.1
 Summary:	Seminar proceedings
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/semproc
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/semproc.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/semproc.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/semproc.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/semproc.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/semproc.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/semproc.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides functionality for typesetting seminar
-proceedings based on KOMA-Script's scrreprt class and etoc. It
-offers an alternative to \chapter that typesets the speaker and
-if necessary the typist of the notes for the talk in question.
-Moreover, the class provides two types of table of contents. A
-global table of contents showing only the talks of the seminar
-and the respective speakers and a local table of contents for
-each talk showing the sections and subsections of the
-respective talk.
+The package provides functionality for typesetting seminar proceedings
+based on KOMA-Script's scrreprt class and etoc. It offers an alternative
+to \chapter that typesets the speaker and if necessary the typist of the
+notes for the talk in question. Moreover, the class provides two types
+of table of contents. A global table of contents showing only the talks
+of the seminar and the respective speakers and a local table of contents
+for each talk showing the sections and subsections of the respective
+talk.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/semproc
-%{_texmfdistdir}/tex/latex/semproc
-%doc %{_texmfdistdir}/doc/latex/semproc
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
